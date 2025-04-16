@@ -21,13 +21,11 @@ jobs:
           java-version: "11"
 
       - name: Compile Java Files
-        working-directory: cloudsim-3.0.3/examples
         run: |
           mkdir -p bin
           find . -name "*.java" > sources.txt
-          javac -cp "../../lib/*:." -d bin @sources.txt
+          javac -cp "../lib/*:." -d bin @sources.txt
 
       - name: Run CloudSim Simulation
-        working-directory: cloudsim-3.0.3/examples
         run: |
-          java -cp "bin:../../lib/*:." org.cloudbus.cloudsim.examples.cloudComputing.MySimulation
+          java -cp "bin:../lib/*:." org.cloudbus.cloudsim.examples.cloudComputing.MySimulation
